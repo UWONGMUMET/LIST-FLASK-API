@@ -32,7 +32,7 @@ def create_note(name, description):
     conn = db_conn()
     cur = conn.cursor()
     cur.execute('''INSERT INTO crudTutorial (name, description) VALUES (%s, %s) RETURNING id''', (name, description))  
-    new_note_id = cur.fetchone()[0]  # Ambil ID dari hasil RETURNING
+    new_note_id = cur.fetchone()[0]  
     conn.commit()
     cur.close()
     conn.close()
